@@ -1,0 +1,2 @@
+include ':replicant', ':automata'
+rootProject.name = "nier"
