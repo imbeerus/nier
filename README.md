@@ -2,9 +2,6 @@
 
 <img src="https://b.thumbs.redditmedia.com/fgPTrlTWKzx7u2-5y1-ZVgvML_3lA_hZXonp41yTyXo.png" align="right" width="10%" />
 
-[![API](https://img.shields.io/badge/API-21%2B-orange.svg)](https://android-arsenal.com/api?level=16)
-![Android CI](https://github.com/lndmflngs/nier/workflows/Android%20CI/badge.svg?branch=master)
-
 Monorepo with android related practices
 
 ## Issue Tracking

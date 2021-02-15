@@ -1,2 +1,5 @@
-include ':replicant', ':automata'
+include ':replicant'
+include ':automata:android', ':automata:animation', ':automata:core', ':automata:file',
+        ':automata:graphics', ':automata:intent', ':automata:notification', ':automata:res',
+        ':automata:text', ':automata:view', ':automata:screen'
 rootProject.name = "nier"

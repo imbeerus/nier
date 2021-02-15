@@ -12,6 +12,17 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/automata" />
+            <option value="$PROJECT_DIR$/automata/android" />
+            <option value="$PROJECT_DIR$/automata/animation" />
+            <option value="$PROJECT_DIR$/automata/core" />
+            <option value="$PROJECT_DIR$/automata/file" />
+            <option value="$PROJECT_DIR$/automata/graphics" />
+            <option value="$PROJECT_DIR$/automata/intent" />
+            <option value="$PROJECT_DIR$/automata/notification" />
+            <option value="$PROJECT_DIR$/automata/res" />
+            <option value="$PROJECT_DIR$/automata/screen" />
+            <option value="$PROJECT_DIR$/automata/text" />
+            <option value="$PROJECT_DIR$/automata/view" />
             <option value="$PROJECT_DIR$/replicant" />
           </set>
         </option>
