@@ -15,14 +15,13 @@ fun Activity.startCreateFile(
     fileName: String,
     fileType: String,
     requestCode: Int,
-) {
-    val intent = buildIntent(Intent.ACTION_CREATE_DOCUMENT) {
-        type = fileType
-        addCategory(Intent.CATEGORY_OPENABLE)
-        putExtra(Intent.EXTRA_TITLE, fileName)
-    }
+) = buildIntent(Intent.ACTION_CREATE_DOCUMENT) {
+    type = fileType
+    addCategory(Intent.CATEGORY_OPENABLE)
+    putExtra(Intent.EXTRA_TITLE, fileName)
 
-    startActivityForResult(intent, requestCode)
+    startActivityForResult(this, requestCode)
+    return@buildIntent
 }
 
 fun Context.openFile(
@@ -44,15 +43,14 @@ fun Context.openFileByProvider(
     openFile(uri, fileType)
 }
 
+
 fun Context.openFile(
     uri: Uri,
     fileType: String,
-) {
-    val intent = buildIntent(Intent.ACTION_VIEW) {
-        setDataAndType(uri, fileType)
-        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-    }
+) = buildIntent(Intent.ACTION_VIEW) {
+    setDataAndType(uri, fileType)
+    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 
-    startActivity(intent)
+    startActivity(this)
+    return@buildIntent
 }
-

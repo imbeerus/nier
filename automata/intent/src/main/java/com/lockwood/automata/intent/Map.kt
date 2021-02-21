@@ -10,15 +10,21 @@ fun Context.showLocationOnMap(
     lat: String,
     lng: String,
     label: String = String.EMPTY,
-) {
+) = buildIntent(Intent.ACTION_VIEW, buildLocationUri(lat, lng, label)) {
+    startActivity(this)
+    return@buildIntent
+}
+
+private fun buildLocationUri(
+    lat: String,
+    lng: String,
+    label: String = String.EMPTY,
+): Uri {
     val geoLocation = if (label.isEmpty()) {
         "geo:$lat,$lng"
     } else {
         "geo:0,0?q=$lat,$lng($label)"
     }
 
-    val uri = Uri.parse(geoLocation)
-    val intent = buildIntent(Intent.ACTION_VIEW, uri)
-
-    startActivity(intent)
+    return Uri.parse(geoLocation)
 }

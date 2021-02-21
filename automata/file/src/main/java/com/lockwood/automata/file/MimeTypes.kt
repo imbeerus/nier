@@ -2,9 +2,9 @@ package com.lockwood.automata.file
 
 import android.webkit.MimeTypeMap
 
-object MImeTypes {
+object MimeTypes {
 
-    const val ANY_MIME_TYPE = "*/*"
+    const val WILDCARD = "*/*"
 
     fun getFileExtensionFromUrl(url: String): String {
         return MimeTypeMap.getFileExtensionFromUrl(url)
@@ -17,7 +17,7 @@ object MImeTypes {
     }
 
     fun getMimeTypeFromExtension(extension: String): String {
-        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension) ?: ANY_MIME_TYPE
+        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension) ?: WILDCARD
     }
 
 }

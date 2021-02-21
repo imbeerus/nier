@@ -36,10 +36,9 @@ private fun Activity.startCameraAction(
     uri: Uri,
     action: String,
     requestCode: Int,
-) {
-    val intent = buildIntent(action) {
-        putExtra(MediaStore.EXTRA_OUTPUT, uri)
-    }
+) = buildIntent(action) {
+    putExtra(MediaStore.EXTRA_OUTPUT, uri)
 
     startActivityForResult(intent, requestCode)
+    return@buildIntent
 }

@@ -9,21 +9,15 @@ import com.lockwood.automata.android.buildIntent
 
 fun Context.dialPhoneNumber(
     phoneNumber: String,
-) {
-    val uri = Uri.parse("tel:$phoneNumber")
-
-    val intent = buildIntent(Intent.ACTION_DIAL, uri)
-
-    startActivity(intent)
+) = buildIntent(Intent.ACTION_DIAL, Uri.parse("tel:$phoneNumber")) {
+    startActivity(this)
+    return@buildIntent
 }
 
 @RequiresPermission(CALL_PHONE)
 fun Context.callPhoneNumber(
     phoneNumber: String,
-) {
-    val uri = Uri.parse("tel:$phoneNumber")
-
-    val intent = buildIntent(Intent.ACTION_CALL, uri)
-
-    startActivity(intent)
+) = buildIntent(Intent.ACTION_CALL, Uri.parse("tel:$phoneNumber")) {
+    startActivity(this)
+    return@buildIntent
 }

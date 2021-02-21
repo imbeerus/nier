@@ -13,14 +13,13 @@ fun Context.createAlarm(
     message: String,
     hour: Int,
     minutes: Int,
-) {
-    val intent = buildIntent(AlarmClock.ACTION_SET_ALARM) {
-        putExtra(AlarmClock.EXTRA_MESSAGE, message)
-        putExtra(AlarmClock.EXTRA_HOUR, hour)
-        putExtra(AlarmClock.EXTRA_MINUTES, minutes)
-    }
+) = buildIntent(AlarmClock.ACTION_SET_ALARM) {
+    putExtra(AlarmClock.EXTRA_MESSAGE, message)
+    putExtra(AlarmClock.EXTRA_HOUR, hour)
+    putExtra(AlarmClock.EXTRA_MINUTES, minutes)
 
-    startActivity(intent)
+    startActivity(this)
+    return@buildIntent
 }
 
 @RequiresApi(Build.VERSION_CODES.KITKAT)
@@ -29,19 +28,17 @@ fun Context.startTimer(
     message: String,
     seconds: Int,
     skipUi: Boolean = false,
-) {
-    val intent = buildIntent(AlarmClock.ACTION_SET_TIMER) {
-        putExtra(AlarmClock.EXTRA_MESSAGE, message)
-        putExtra(AlarmClock.EXTRA_LENGTH, seconds)
-        putExtra(AlarmClock.EXTRA_SKIP_UI, skipUi)
-    }
+) = buildIntent(AlarmClock.ACTION_SET_TIMER) {
+    putExtra(AlarmClock.EXTRA_MESSAGE, message)
+    putExtra(AlarmClock.EXTRA_LENGTH, seconds)
+    putExtra(AlarmClock.EXTRA_SKIP_UI, skipUi)
 
-    startActivity(intent)
+    startActivity(this)
+    return@buildIntent
 }
 
 @RequiresApi(Build.VERSION_CODES.KITKAT)
-fun Context.showAlarms() {
-    val intent = buildIntent(AlarmClock.ACTION_SHOW_ALARMS)
-
-    startActivity(intent)
+fun Context.showAlarms() = buildIntent(AlarmClock.ACTION_SHOW_ALARMS) {
+    startActivity(this)
+    return@buildIntent
 }

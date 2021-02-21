@@ -10,13 +10,12 @@ fun Context.addCalendarEvent(
     location: String,
     begin: Long,
     end: Long,
-) {
-    val intent = buildIntent(Intent.ACTION_INSERT, CalendarContract.Events.CONTENT_URI) {
-        putExtra(CalendarContract.Events.TITLE, title)
-        putExtra(CalendarContract.Events.EVENT_LOCATION, location)
-        putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, begin)
-        putExtra(CalendarContract.EXTRA_EVENT_END_TIME, end)
-    }
+) = buildIntent(Intent.ACTION_INSERT, CalendarContract.Events.CONTENT_URI) {
+    putExtra(CalendarContract.Events.TITLE, title)
+    putExtra(CalendarContract.Events.EVENT_LOCATION, location)
+    putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, begin)
+    putExtra(CalendarContract.EXTRA_EVENT_END_TIME, end)
 
-    startActivity(intent)
+    startActivity(this)
+    return@buildIntent
 }

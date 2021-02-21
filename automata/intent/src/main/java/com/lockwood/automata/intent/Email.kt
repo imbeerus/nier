@@ -5,25 +5,25 @@ import android.content.Intent
 import android.net.Uri
 import com.lockwood.automata.android.buildIntent
 import com.lockwood.automata.core.EMPTY
+import com.lockwood.automata.core.LINE_SEPARATOR
 import com.lockwood.automata.core.SINGLE
-import com.lockwood.automata.file.MIME_TYPES
+import com.lockwood.automata.file.MimeTypes.WILDCARD
+
+private val <Uri> Array<Uri>.sendAction: String
+    get() = if (size == Int.SINGLE) {
+        Intent.ACTION_SEND
+    } else {
+        Intent.ACTION_SEND_MULTIPLE
+    }
 
 fun Context.composeEmail(
     address: String,
     subject: String,
     body: String = String.EMPTY,
-) {
-    val mailUri = StringBuilder("mailto:$address?subject=$subject")
+) = buildIntent(Intent.ACTION_SENDTO, buildValidMailUri(address, subject, body)) {
 
-    if (body.isNotEmpty()) {
-        val bodyWithLines = body.replace("\n", "<br>")
-        mailUri.append("&body=$bodyWithLines")
-    }
-
-    val resultMailUri = Uri.parse(mailUri.toString())
-    val intent = buildIntent(Intent.ACTION_SENDTO, resultMailUri)
-
-    startActivity(intent)
+    startActivity(this)
+    return@buildIntent
 }
 
 fun Context.composeEmail(
@@ -41,18 +41,27 @@ fun Context.composeEmail(
     subject: String,
     vararg attachments: Uri,
 ) {
-    val sendAction = if (attachments.size == Int.SINGLE) {
-        Intent.ACTION_SEND
-    } else {
-        Intent.ACTION_SEND_MULTIPLE
-    }
-
-    val intent = buildIntent(sendAction) {
-        type = MIME_TYPES.ANY_MIME_TYPE
+    val intent = buildIntent(attachments.sendAction) {
+        type = WILDCARD
         putExtra(Intent.EXTRA_EMAIL, addresses)
         putExtra(Intent.EXTRA_SUBJECT, subject)
         putExtra(Intent.EXTRA_STREAM, attachments)
     }
 
     startActivity(intent)
+}
+
+private fun buildValidMailUri(
+    address: String,
+    subject: String,
+    body: String = String.EMPTY,
+): Uri {
+    val mailUri = StringBuilder("mailto:$address?subject=$subject")
+
+    if (body.isNotEmpty()) {
+        val bodyWithLines = body.replace(String.LINE_SEPARATOR, "<br>")
+        mailUri.append("&body=$bodyWithLines")
+    }
+
+    return Uri.parse(mailUri.toString())
 }

@@ -1,7 +1,7 @@
 package com.lockwood.automata.file
 
 import android.webkit.MimeTypeMap
-import com.lockwood.automata.file.MImeTypes.ANY_MIME_TYPE
+import com.lockwood.automata.file.MimeTypes.WILDCARD
 import java.io.File
 
 
@@ -12,4 +12,4 @@ val File.extension: String
     get() = name.substringAfterLast(".")
 
 val File.mimeType: String
-    get() = MimeTypeMap.getSingleton().getExtensionFromMimeType(extension) ?: ANY_MIME_TYPE
+    get() = MimeTypeMap.getSingleton().getExtensionFromMimeType(extension) ?: WILDCARD
