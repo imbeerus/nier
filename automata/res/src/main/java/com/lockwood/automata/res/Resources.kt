@@ -6,7 +6,13 @@ import android.graphics.BitmapFactory
 import android.graphics.drawable.Drawable
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import androidx.annotation.*
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
+import androidx.annotation.IdRes
+import androidx.annotation.AnimRes
+import androidx.annotation.DimenRes
+import androidx.annotation.Px
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import com.lockwood.automata.graphics.tint

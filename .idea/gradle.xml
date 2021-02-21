@@ -24,6 +24,9 @@
             <option value="$PROJECT_DIR$/automata/text" />
             <option value="$PROJECT_DIR$/automata/view" />
             <option value="$PROJECT_DIR$/replicant" />
+            <option value="$PROJECT_DIR$/replicant/delegate" />
+            <option value="$PROJECT_DIR$/replicant/executor" />
+            <option value="$PROJECT_DIR$/replicant/res" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

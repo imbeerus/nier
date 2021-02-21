@@ -3,7 +3,7 @@ package com.lockwood.automata.graphics
 import android.graphics.Bitmap
 import com.lockwood.automata.core.SINGLE
 import com.lockwood.automata.core.ZERO
-import java.util.*
+import java.util.Arrays
 
 fun Bitmap.cropTransparent(): Bitmap {
     var empty = IntArray(width)

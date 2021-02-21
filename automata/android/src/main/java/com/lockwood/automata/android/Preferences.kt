@@ -2,8 +2,9 @@ package com.lockwood.automata.android
 
 import android.content.SharedPreferences
 import android.content.SharedPreferences.Editor
+import com.lockwood.automata.core.EMPTY
 
-@Throws(IllegalArgumentException::class)
+@kotlin.jvm.Throws(IllegalArgumentException::class)
 fun Editor.putNumber(
     key: String,
     value: Number,
@@ -14,7 +15,7 @@ fun Editor.putNumber(
     else -> throw IllegalArgumentException("This type ${value::class} of value cannot be saved in Preferences")
 }
 
-@Throws(IllegalArgumentException::class)
+@kotlin.jvm.Throws(IllegalArgumentException::class)
 fun SharedPreferences.getNumber(
     key: String,
     default: Number,
@@ -24,3 +25,7 @@ fun SharedPreferences.getNumber(
     is Float -> getFloat(key, default)
     else -> throw IllegalArgumentException("This type ${default::class} of value cannot be saved in Preferences")
 }
+
+fun SharedPreferences.getStringOrEmpty(
+    key: String,
+): String = getString(key, String.EMPTY) ?: String.EMPTY
