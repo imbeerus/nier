@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import com.lockwood.replicant.view.ProgressView
 import com.lockwood.replicant.view.ScreenView
 
-@Throws(IllegalStateException::class)
+@kotlin.jvm.Throws(IllegalStateException::class)
 fun Fragment.requireProgressView(): ProgressView {
     check(requireActivity() is ProgressView) {
         "Activity should implement ProgressView"
@@ -12,7 +12,7 @@ fun Fragment.requireProgressView(): ProgressView {
     return (requireActivity() as ProgressView)
 }
 
-@Throws(IllegalStateException::class)
+@kotlin.jvm.Throws(IllegalStateException::class)
 fun Fragment.requireScreenView(): ScreenView {
     check(requireActivity() is ScreenView) {
         "Activity should implement ScreenView"

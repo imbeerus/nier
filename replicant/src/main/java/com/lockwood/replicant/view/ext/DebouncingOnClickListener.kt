@@ -10,7 +10,7 @@ fun View.setDebouncingOnClickListener(
 ) {
     setOnClickListener(object : DebouncingOnClickListener(timeout) {
         override fun doClick(v: View) {
-            onClick()
+            v.onClick()
         }
     })
 }

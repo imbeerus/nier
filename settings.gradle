@@ -2,5 +2,5 @@ include ':automata:android', ':automata:animation', ':automata:core', ':automata
         ':automata:graphics', ':automata:intent', ':automata:notification', ':automata:res',
         ':automata:text', ':automata:view', ':automata:screen'
 include ':replicant', ':replicant:delegate', ':replicant:executor', ':replicant:res',
-        ':replicant:imageloader', ':replicant:imageloader:glide'
+        ':replicant:imageloader', ':replicant:imageloader:glide', ':replicant:locale'
 rootProject.name = "nier"

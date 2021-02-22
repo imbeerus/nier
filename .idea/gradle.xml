@@ -28,6 +28,7 @@
             <option value="$PROJECT_DIR$/replicant/executor" />
             <option value="$PROJECT_DIR$/replicant/imageloader" />
             <option value="$PROJECT_DIR$/replicant/imageloader/glide" />
+            <option value="$PROJECT_DIR$/replicant/locale" />
             <option value="$PROJECT_DIR$/replicant/res" />
           </set>
         </option>
