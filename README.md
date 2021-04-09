@@ -1,5 +1,9 @@
 # nier
 
+[![API](https://img.shields.io/badge/API-21%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=21)
+[![License](https://img.shields.io/badge/license-Apache%202-red.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
+[![](https://jitpack.io/v/ScornfulBirch/nier.svg)](https://jitpack.io/#ScornfulBirch/nier)
+
 <img src="https://b.thumbs.redditmedia.com/fgPTrlTWKzx7u2-5y1-ZVgvML_3lA_hZXonp41yTyXo.png" align="right" width="10%" />
 
 Monorepo with android related practices
