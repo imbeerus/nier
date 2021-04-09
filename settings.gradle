@@ -1,6 +1,6 @@
-include ':automata:android', ':automata:animation', ':automata:core', ':automata:file',
-        ':automata:graphics', ':automata:intent', ':automata:notification', ':automata:res',
-        ':automata:text', ':automata:view', ':automata:screen'
-include ':replicant', ':replicant:delegate', ':replicant:executor', ':replicant:res',
-        ':replicant:imageloader', ':replicant:imageloader:glide', ':replicant:locale'
+include ":automata:android", ":automata:core", ":automata:file",
+        ":automata:intent", ":automata:notification", ":automata:text",
+        ":automata:view", ":automata:screen", ":automata:recycler"
+include ":replicant", ":replicant:delegate", ":replicant:executor", ":replicant:imageloader",
+        ":replicant:locale"
 rootProject.name = "nier"

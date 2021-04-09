@@ -1,10 +1,8 @@
 package com.lockwood.replicant.launcher
 
-import android.content.Intent
+import android.content.Context
 
 interface NoArgsLauncher {
 
-	fun launch()
-
-	fun buildIntent(): Intent
+	fun launch(context: Context)
 }

@@ -6,8 +6,10 @@ import com.lockwood.replicant.feature.Releasable
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
-class UnsafeReleasableLazy<T : Any>(
-	private val initializer: () -> T,
+class UnsafeReleasableLazy<T : Any>
+@PublishedApi
+internal constructor(
+		private val initializer: () -> T,
 ) : ReadOnlyProperty<Any?, T>, Releasable {
 
 	private var releasableValue: Any = UNINITIALIZED_VALUE
@@ -27,5 +29,4 @@ class UnsafeReleasableLazy<T : Any>(
 
 		releasableValue = UNINITIALIZED_VALUE
 	}
-
 }

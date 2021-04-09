@@ -4,13 +4,16 @@ import android.app.Application
 import android.content.Context
 
 inline class ApplicationContext(
-    private val value: Application,
+		private val context: Context,
 ) {
 
-    val context: Context
-        get() = value.applicationContext
-}
+	val value: Context
+		get() = context
 
-fun Application.toContext(): ApplicationContext {
-    return ApplicationContext(this)
+	val application: Application
+		get() = context as Application
+
+	override fun toString(): String {
+		return super.toString()
+	}
 }

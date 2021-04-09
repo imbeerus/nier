@@ -1,0 +1,15 @@
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+
+        // stops the Gradle plugin’s automatic rasterization of vectors
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    testOptions.unitTests.all {
+        maxParallelForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
+    }
+}

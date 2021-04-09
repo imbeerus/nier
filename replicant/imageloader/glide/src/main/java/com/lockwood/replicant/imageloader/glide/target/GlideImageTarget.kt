@@ -8,8 +8,8 @@ import com.lockwood.replicant.imageloader.target.Target
 import com.lockwood.replicant.imageloader.target.ViewTarget
 
 internal class GlideImageTarget(
-    override val targetView: ImageView,
-    private vararg val callbacks: Target,
+		override val targetView: ImageView,
+		private vararg val callbacks: Target,
 ) : GlideImageCustomTarget(targetView), ViewTarget<ImageView> {
 
 	override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
@@ -26,5 +26,4 @@ internal class GlideImageTarget(
 		onError(errorDrawable)
 		callbacks.iterator().forEach { target -> target.onError(errorDrawable) }
 	}
-
 }

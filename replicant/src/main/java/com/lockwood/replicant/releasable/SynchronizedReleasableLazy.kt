@@ -6,8 +6,10 @@ import com.lockwood.replicant.feature.Releasable
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
-class SynchronizedReleasableLazy<T : Any>(
-	private val initializer: () -> T,
+class SynchronizedReleasableLazy<T : Any>
+@PublishedApi
+internal constructor(
+		private val initializer: () -> T,
 ) : ReadOnlyProperty<Any?, T>, Releasable {
 
 	@Volatile
@@ -22,14 +24,17 @@ class SynchronizedReleasableLazy<T : Any>(
 		return safeGetValue()
 	}
 
-	private fun safeGetValue(): T = synchronized(this) {
-		val _v2 = releasableValue
-		return if (_v2 !== UNINITIALIZED_VALUE) {
-			_v2 as T
-		} else {
-			val typedValue = initializer()
-			releasableValue = typedValue
-			typedValue
+	private fun safeGetValue(): T {
+		synchronized(this) {
+			val _v2 = releasableValue
+
+			return if (_v2 !== UNINITIALIZED_VALUE) {
+				_v2 as T
+			} else {
+				val typedValue = initializer()
+				releasableValue = typedValue
+				typedValue
+			}
 		}
 	}
 
@@ -48,5 +53,4 @@ class SynchronizedReleasableLazy<T : Any>(
 			}
 		}
 	}
-
 }
