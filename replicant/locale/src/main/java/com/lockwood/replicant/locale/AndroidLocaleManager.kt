@@ -2,26 +2,36 @@ package com.lockwood.replicant.locale
 
 import android.content.Context
 import android.content.res.Configuration
-import androidx.core.os.ConfigurationCompat
-import java.util.Locale
+import android.os.Build
+import com.lockwood.automata.android.ApplicationContext
+import java.util.*
 
 class AndroidLocaleManager(
-		private val context: Context,
+    private val context: ApplicationContext,
 ) : LocaleManager {
 
-	private val configuration: Configuration
-		get() = context.applicationContext.resources.configuration
+    private val configuration: Configuration
+        get() = context.application.resources.configuration
 
-	override val currentLocale: Locale
-		get() = ConfigurationCompat.getLocales(configuration).get(0)
+    override var locale: Locale
+        get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            configuration.locales.get(0)
+        } else {
+            configuration.locale
+        }
+        set(value) {
+            Locale.setDefault(value)
+            configuration.setLocale(value)
+        }
 
-	override fun createLocaleContext(context: Context, locale: Locale): Context {
-		Locale.setDefault(locale)
-		return createConfigurationContext(context, locale)
-	}
+    override fun createLocaleContext(context: Context, locale: Locale): Context {
+        Locale.setDefault(locale)
+        return createConfigurationContext(context, locale)
+    }
 
-	private fun createConfigurationContext(context: Context, locale: Locale): Context {
-		val localeConfiguration = configuration.apply { setLocale(locale) }
-		return context.createConfigurationContext(localeConfiguration)
-	}
+    private fun createConfigurationContext(context: Context, locale: Locale): Context {
+        val localeConfiguration = configuration.apply { setLocale(locale) }
+        return context.createConfigurationContext(localeConfiguration)
+    }
+
 }

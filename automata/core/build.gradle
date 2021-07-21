@@ -3,4 +3,3 @@ plugins {
 }
 
 apply from: rootProject.file("gradle/kotlin.gradle")
-apply from: rootProject.file("gradle/publish.gradle")

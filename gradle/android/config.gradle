@@ -1,9 +1,17 @@
 android {
     compileSdkVersion 30
 
+    buildToolsVersion "30.0.3"
+
+    aaptOptions {
+        noCompress ""
+    }
+
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 30
+
+        resConfigs "en", "ldltr", "notround", "port", "night"
 
         // stops the Gradle plugin’s automatic rasterization of vectors
         vectorDrawables.useSupportLibrary = true
@@ -11,5 +19,17 @@ android {
 
     testOptions.unitTests.all {
         maxParallelForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/*.kotlin_module'
     }
 }

@@ -1,0 +1,13 @@
+plugins {
+    id "org.jetbrains.kotlin.jvm"
+}
+
+apply from: rootProject.file("gradle/kotlin.gradle")
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+
+    compileOnly androidJar
+    compileOnly "androidx.annotation:annotation:1.2.0"
+}
