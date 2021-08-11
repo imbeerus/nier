@@ -1,3 +1,5 @@
+import com.lockwood.jar.AndroidJarPlugin
+
 buildscript {
     ext.kotlin_version = "1.5.21"
     repositories {
@@ -13,6 +15,12 @@ buildscript {
     }
 }
 
+plugins {
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+    id 'com.gradle.plugin-publish' version '0.14.0'
+}
+
 allprojects {
     repositories {
         google()
@@ -26,6 +34,22 @@ apply plugin: AndroidJarPlugin
 
 ext.androidJar = androidJar.find(30)
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+group = 'com.lockwood'
+version = '1.0'
+
+pluginBundle {
+    website = 'https://github.com/ScornfulBirch/nier'
+    vcsUrl = 'https://github.com/ScornfulBirch/nier.git'
+    tags = ['android']
+}
+
+gradlePlugin {
+    plugins {
+        greetingsPlugin {
+            id = 'com.lockwood.jar'
+            displayName = 'Android Jar Plugin'
+            description = 'Gradle plugin which will find your android.jar'
+            implementationClass = 'com.lockwood.jar.AndroidJarPlugin'
+        }
+    }
 }
