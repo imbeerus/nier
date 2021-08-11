@@ -4,7 +4,7 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="testRunner" value="PLATFORM" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
@@ -14,17 +14,21 @@
             <option value="$PROJECT_DIR$/automata/android" />
             <option value="$PROJECT_DIR$/automata/core" />
             <option value="$PROJECT_DIR$/automata/file" />
-            <option value="$PROJECT_DIR$/automata/intent" />
             <option value="$PROJECT_DIR$/automata/notification" />
-            <option value="$PROJECT_DIR$/automata/recycler" />
             <option value="$PROJECT_DIR$/automata/screen" />
-            <option value="$PROJECT_DIR$/automata/text" />
             <option value="$PROJECT_DIR$/automata/view" />
+            <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/replicant" />
             <option value="$PROJECT_DIR$/replicant/delegate" />
             <option value="$PROJECT_DIR$/replicant/executor" />
+            <option value="$PROJECT_DIR$/replicant/feature" />
             <option value="$PROJECT_DIR$/replicant/imageloader" />
+            <option value="$PROJECT_DIR$/replicant/imageloader/glide" />
+            <option value="$PROJECT_DIR$/replicant/inflater" />
             <option value="$PROJECT_DIR$/replicant/locale" />
+            <option value="$PROJECT_DIR$/replicant/mvi" />
+            <option value="$PROJECT_DIR$/replicant/permission" />
+            <option value="$PROJECT_DIR$/replicant/recycler" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

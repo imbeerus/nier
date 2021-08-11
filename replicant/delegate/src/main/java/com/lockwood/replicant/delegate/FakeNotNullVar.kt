@@ -10,7 +10,7 @@ import kotlin.reflect.jvm.isAccessible
 
 interface Nullable {
 
-    fun resetToNotNull()
+    fun resetToNull()
 }
 
 class FakeNotNullVar<T> : ReadWriteProperty<Any?, T>, Nullable {
@@ -25,7 +25,7 @@ class FakeNotNullVar<T> : ReadWriteProperty<Any?, T>, Nullable {
         this.value = value
     }
 
-    override fun resetToNotNull() {
+    override fun resetToNull() {
         this.value = null
     }
 
@@ -45,5 +45,5 @@ inline fun <reified T : Any> T.resetFakeNotNullVar() {
             delegate
         }
         .filterIsInstance(Nullable::class.java)
-        .forEach(Nullable::resetToNotNull)
+        .forEach(Nullable::resetToNull)
 }

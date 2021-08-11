@@ -8,6 +8,7 @@ dependencies {
 
     implementation project(":replicant:delegate")
     implementation project(":replicant:feature")
+    implementation project(":replicant:permission")
     implementation project(":replicant:mvi")
 
     implementation project(":automata:core")

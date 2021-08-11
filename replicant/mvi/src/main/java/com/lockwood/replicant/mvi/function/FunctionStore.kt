@@ -1,6 +1,6 @@
 package com.lockwood.replicant.mvi.function
 
-import com.lockwood.automata.core.calculateHashCode
+import com.lockwood.automata.core.HashUtils
 import com.lockwood.replicant.mvi.Releasable
 
 class FunctionStore : Releasable {
@@ -12,19 +12,19 @@ class FunctionStore : Releasable {
     }
 
     fun <P1, T> remember(first: P1, action: ((P1) -> T)) {
-        val hashPair = action.hashCode() to calculateHashCode(first)
+        val hashPair = action.hashCode() to HashUtils.calculateHashCode(first)
 
         rememberInvoke(hashPair) { action.invoke(first) }
     }
 
     fun <P1, P2, T> remember(first: P1, second: P2, action: ((P1, P2) -> T)) {
-        val hashPair = action.hashCode() to calculateHashCode(first, second)
+        val hashPair = action.hashCode() to HashUtils.calculateHashCode(first, second)
 
         rememberInvoke(hashPair) { action.invoke(first, second) }
     }
 
     fun <P1, P2, P3, T> remember(first: P1, second: P2, third: P3, action: ((P1, P2, P3) -> T)) {
-        val hashPair = action.hashCode() to calculateHashCode(first, second, third)
+        val hashPair = action.hashCode() to HashUtils.calculateHashCode(first, second, third)
 
         rememberInvoke(hashPair) { action.invoke(first, second, third) }
     }
