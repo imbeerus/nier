@@ -8,5 +8,5 @@ apply from: rootProject.file("gradle/android/kotlin.gradle")
 
 dependencies {
 
-    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
 }

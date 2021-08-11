@@ -10,25 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/automata" />
-            <option value="$PROJECT_DIR$/automata/android" />
-            <option value="$PROJECT_DIR$/automata/core" />
-            <option value="$PROJECT_DIR$/automata/file" />
-            <option value="$PROJECT_DIR$/automata/notification" />
-            <option value="$PROJECT_DIR$/automata/screen" />
-            <option value="$PROJECT_DIR$/automata/view" />
-            <option value="$PROJECT_DIR$/buildSrc" />
-            <option value="$PROJECT_DIR$/replicant" />
-            <option value="$PROJECT_DIR$/replicant/delegate" />
-            <option value="$PROJECT_DIR$/replicant/executor" />
-            <option value="$PROJECT_DIR$/replicant/feature" />
-            <option value="$PROJECT_DIR$/replicant/imageloader" />
-            <option value="$PROJECT_DIR$/replicant/imageloader/glide" />
-            <option value="$PROJECT_DIR$/replicant/inflater" />
-            <option value="$PROJECT_DIR$/replicant/locale" />
-            <option value="$PROJECT_DIR$/replicant/mvi" />
-            <option value="$PROJECT_DIR$/replicant/permission" />
-            <option value="$PROJECT_DIR$/replicant/recycler" />
+            <option value="$PROJECT_DIR$/android-jar-plugin" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
