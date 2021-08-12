@@ -1,3 +1,4 @@
+rootProject.name = "nier"
 include ":automata:android", ":automata:core", ":automata:file",
         ":automata:notification", ":automata:view",
         ":automata:screen"
@@ -5,4 +6,3 @@ include ":replicant", ":replicant:delegate", ":replicant:executor",
         ":replicant:imageloader", ":replicant:imageloader:glide",
         ":replicant:inflater", ":replicant:locale", ":replicant:feature", ":replicant:permission",
         ":replicant:recycler", ":replicant:mvi"
-rootProject.name = "nier"
