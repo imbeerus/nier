@@ -6,3 +6,10 @@ include ":replicant", ":replicant:delegate", ":replicant:executor",
         ":replicant:imageloader", ":replicant:imageloader:glide",
         ":replicant:inflater", ":replicant:locale", ":replicant:feature", ":replicant:permission",
         ":replicant:recycler", ":replicant:mvi"
+include ':app'
+
+buildCache {
+    local {
+        directory = new File(rootDir, 'build')
+    }
+}
